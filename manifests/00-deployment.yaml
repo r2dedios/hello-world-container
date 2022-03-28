@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: avillega-hello-world
+  labels:
+    owner: avillega
+    app: hello-world
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      owner: avillega
+      app: hello-world
+
+  template:
+    metadata:
+      labels:
+        owner: avillega
+        app: hello-world
+
+    spec:
+      imagePullPolicy: Always
+      containers:
+        - name: hello-world
+          image: quay.io/avillega/hello-world-container:latest
+          ports:
+            - containerPort: 8090
