@@ -8,7 +8,7 @@ import (
 )
 
 var (
-	host = "localhost"
+	host = ""
 	port = "8090"
 )
 
