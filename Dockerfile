@@ -8,6 +8,7 @@ WORKDIR /app
 COPY go.mod ./
 COPY main.go ./
 
+ENV CGO_ENABLED=0
 RUN go build -o /hello-world
 
 
