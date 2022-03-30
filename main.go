@@ -27,7 +27,13 @@ func ResponseHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w,
 		`
 <h1>Hello, there</h1>
+<div>
+I'm the <i>avillega-hello-world:</i><b>v1.0</b>
+</div>
+<div>
 I'm running on: <b>%s</b>
+</div>
+
 `, getHostname())
 }
 
