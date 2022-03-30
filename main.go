@@ -23,11 +23,12 @@ func main() {
 
 // ResponseHandler returns the default HTML code response for this container
 func ResponseHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Printf("Request from %s(%s)\n", r.Host, r.RemoteAddr)
 	fmt.Fprintf(w,
 		`
-		<h1>Hello, there</h1>
-		I'm running on: <b>%s</b>
-		`, getHostname())
+<h1>Hello, there</h1>
+I'm running on: <b>%s</b>
+`, getHostname())
 }
 
 func getHostname() string {
