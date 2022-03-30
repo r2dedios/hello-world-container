@@ -28,13 +28,25 @@ func ResponseHandler(w http.ResponseWriter, r *http.Request) {
 		`
 <h1>Hello, there</h1>
 <div>
-I'm the <i>avillega-hello-world:</i><b>v1.0</b>
+I'm the <i>avillega-hello-world:</i><b>v2.0</b>
 </div>
 <div>
-I'm running on: <b>%s</b>
+I'm running on:
+</div>
+<div>
+Version: <b>%s</b>
+</div>
+<div>
+Process ID: <b>%d</b>
+</div>
+<div>
+User ID: <b>%d</b>
+</div>
+<div>
+Group ID: <b>%d</b>
 </div>
 
-`, getHostname())
+`, getHostname(), getPID(), getUID(), getGID())
 }
 
 func getHostname() string {
@@ -43,4 +55,16 @@ func getHostname() string {
 		return err.Error()
 	}
 	return hostname
+}
+
+func getPID() int {
+	return os.Getpid()
+}
+
+func getUID() int {
+	return os.Getuid()
+}
+
+func getGID() int {
+	return os.Getgid()
 }
